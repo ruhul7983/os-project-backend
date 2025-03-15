@@ -135,7 +135,7 @@ async function run() {
         res.send({ inClassroom: true, sectionName: classroom?.sectionName,events });
       } catch (error) {
         console.error("Error fetching classrooms:", error);
-        res.status(500).send({ error: "Internal Server Error" });
+        res.status(500).send({ error: "Internal Server Error test" });
       }
     });
 
