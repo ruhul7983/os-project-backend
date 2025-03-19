@@ -82,8 +82,10 @@ async function run() {
 
     app.post("/classroom", async (req, res) => {
       const { email, semesterName, sectionName, classCode } = req.body;
+      console.log("Log From ",req.body);
+      
       const classroom = { email, semesterName, sectionName, classCode, createdAt: new Date() };
-      const existingClassroom = await classroomCollection.findOne({ $or: [{ sectionName }, { classCode }, { semesterName }] });
+      const existingClassroom = await classroomCollection.findOne({ $or: [{ sectionName }, { classCode }] });
       console.log(existingClassroom);
 
       if (existingClassroom) {
